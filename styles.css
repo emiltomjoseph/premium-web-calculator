@@ -1,0 +1,238 @@
+:root {
+    /* Default Theme (Midnight) */
+    --bg-color: #0f172a;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.4);
+    --operator-color: #f472b6;
+    --secondary-btn-bg: rgba(255, 255, 255, 0.1);
+    --btn-hover-bg: rgba(255, 255, 255, 0.15);
+    --bg-gradient-1: rgba(56, 189, 248, 0.1);
+    --bg-gradient-2: rgba(244, 114, 182, 0.1);
+}
+
+[data-theme="sunset"] {
+    --bg-color: #2a1121;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --text-primary: #fff1f2;
+    --text-secondary: #fda4af;
+    --accent-color: #fb7185;
+    --accent-glow: rgba(251, 113, 133, 0.4);
+    --operator-color: #fb923c;
+    --secondary-btn-bg: rgba(255, 255, 255, 0.1);
+    --btn-hover-bg: rgba(255, 255, 255, 0.2);
+    --bg-gradient-1: rgba(251, 113, 133, 0.15);
+    --bg-gradient-2: rgba(251, 146, 60, 0.15);
+}
+
+[data-theme="cyberpunk"] {
+    --bg-color: #000000;
+    --glass-bg: rgba(20, 255, 0, 0.05);
+    --glass-border: rgba(20, 255, 0, 0.3);
+    --text-primary: #ccff00;
+    --text-secondary: #00ff00;
+    --accent-color: #00ff00;
+    --accent-glow: rgba(0, 255, 0, 0.5);
+    --operator-color: #ff00ff;
+    --secondary-btn-bg: rgba(20, 255, 0, 0.1);
+    --btn-hover-bg: rgba(20, 255, 0, 0.2);
+    --bg-gradient-1: rgba(0, 255, 0, 0.1);
+    --bg-gradient-2: rgba(255, 0, 255, 0.1);
+}
+
+[data-theme="glacial"] {
+    --bg-color: #e0f2fe;
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --text-primary: #0c4a6e;
+    --text-secondary: #38bdf8;
+    --accent-color: #0284c7;
+    --accent-glow: rgba(2, 132, 199, 0.2);
+    --operator-color: #0ea5e9;
+    --secondary-btn-bg: rgba(255, 255, 255, 0.5);
+    --btn-hover-bg: rgba(255, 255, 255, 0.8);
+    --bg-gradient-1: rgba(14, 165, 233, 0.1);
+    --bg-gradient-2: rgba(56, 189, 248, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+html {
+    font-size: max(8px, min(3.5vw, 2vh));
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, var(--bg-gradient-1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, var(--bg-gradient-2) 0%, transparent 40%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+}
+
+.calculator-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(1.25rem);
+    -webkit-backdrop-filter: blur(1.25rem);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    width: 21.25rem;
+    box-shadow: 0 1.5rem 3rem -0.75rem rgba(0, 0, 0, 0.3);
+    animation: float 6s ease-in-out infinite;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-0.625rem); }
+    100% { transform: translateY(0); }
+}
+
+.theme-switcher {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.theme-btn {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 0.125rem solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+.theme-btn.active {
+    border-color: var(--text-primary);
+    transform: scale(1.1);
+}
+
+.theme-btn[data-theme="midnight"] { background: #0f172a; border: 1px solid #38bdf8; }
+.theme-btn[data-theme="sunset"] { background: #2a1121; border: 1px solid #fb7185; }
+.theme-btn[data-theme="cyberpunk"] { background: #000; border: 1px solid #00ff00; }
+.theme-btn[data-theme="glacial"] { background: #e0f2fe; border: 1px solid #0284c7; }
+
+.calculator-screen {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 7.5rem;
+}
+
+.expression {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    min-height: 1.5rem;
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.result {
+    color: var(--text-primary);
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.calculator-keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.key {
+    border: none;
+    outline: none;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 400;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.key:hover {
+    background: var(--btn-hover-bg);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    border-color: var(--glass-border);
+}
+
+.key:active {
+    transform: scale(0.95) translateY(0);
+}
+
+.key.action-secondary {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.key.operator {
+    color: var(--operator-color);
+    font-size: 1.5rem;
+}
+
+.key.action-primary {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 0 1rem var(--accent-glow);
+    grid-row: span 1;
+    color: #fff !important; /* Force white text for contrast on accent */
+}
+
+/* Adjust text color for primary action in Glacial theme if needed, but white usually works on dark accents */
+[data-theme="glacial"] .key.action-primary {
+    color: #fff;
+}
+
+.key.action-primary:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 1.5rem var(--accent-glow);
+}
+
+.key.zero-key {
+    grid-column: span 2;
+}
+
+/* Animations for clicks */
+@keyframes click-ripple {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
