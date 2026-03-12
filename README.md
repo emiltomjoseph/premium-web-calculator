@@ -2,6 +2,7 @@
 
 A sleek, modern calculator web app with multiple themes and keyboard support.
 
+
 ## Features
 
 - 4 beautiful themes — Midnight, Sunset, Cyberpunk, Glacial
@@ -9,6 +10,7 @@ A sleek, modern calculator web app with multiple themes and keyboard support.
 - Keyboard support
 - Floating point precision handling
 - Responsive layout
+
 
 ## Themes
 
@@ -18,6 +20,7 @@ A sleek, modern calculator web app with multiple themes and keyboard support.
 | Sunset | Deep rose with warm orange |
 | Cyberpunk | Black with neon green/pink |
 | Glacial | Light blue, clean and minimal |
+
 
 ## Getting Started
 
@@ -29,6 +32,7 @@ cd premium-calculator
 open index.html
 ```
 
+
 ## Project Structure
 
 ```
@@ -36,6 +40,7 @@ open index.html
 ├── styles.css
 └── script.js
 ```
+
 
 ## Keyboard Shortcuts
 
@@ -47,13 +52,16 @@ open index.html
 | `Backspace` | Delete last digit |
 | `Escape` | Clear |
 
+
 ## Built With
 - HTML5
 - CSS3 (Glassmorphism, CSS Variables)
 - JavaScript
 
+
 ## License
 MIT License
+
 
 ### Author
 Emil Tom Joseph  
